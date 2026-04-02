@@ -19,7 +19,11 @@ public abstract class Pessoa {
         this.cpf = cpf;
         this.dataDeCadastro = LocalDate.now();
     }
-
+    public int getId() { return id; }
+    public String getNome() { return nome; }
+    public String getEmail() { return email; }
+    public String getCpf() { return cpf; }
+    public LocalDate getDataDeCadastro() { return dataDeCadastro; }
     public abstract String getTipo();
 
 

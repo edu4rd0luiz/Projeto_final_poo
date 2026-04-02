@@ -20,6 +20,15 @@ public abstract class Pet {
         this.doador = doador;
     }
 
+    public int getId() { return id; }
+    public String getNome() { return nome; }
+    public int getIdade() { return idade; }
+    public double getPeso() { return peso; }
+    public String getRaca() { return raca; }
+    public LocalDate getDataDeCadastro() { return dataDeCadastro; }
+    public Cliente getDoador() { return doador; }
+    public boolean isDisponivel() { return true; } // ajuste depois com atributo proprio
+
 
     public abstract String getTipo();
 

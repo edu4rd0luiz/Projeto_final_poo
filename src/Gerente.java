@@ -59,4 +59,10 @@ public class Gerente extends Pessoa {
        return false;
    }
 
+    public String getMatricula() {
+        return matricula;
+    }
+    public double getSalario() {
+        return salario;
+    }
 }

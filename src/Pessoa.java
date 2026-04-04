@@ -1,6 +1,5 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public abstract class Pessoa {
 //classe abstrata, classe pai de gerente e de cliente

@@ -32,6 +32,28 @@ public class Petrepositorio {
         }
     }
 
+    // ─── Editar ────────────────────────────────────────────────────────────────
+
+    public void editar(Pet pet) {
+        String sql = "UPDATE pet SET nome = ?, idade = ?, peso = ?, raca = ?, disponivel = ? WHERE id = ?";
+        Connection conn = ConexaoBanco.conectar();
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, pet.getNome());
+            stmt.setInt(2, pet.getIdade());
+            stmt.setDouble(3, pet.getPeso());
+            stmt.setString(4, pet.getRaca());
+            stmt.setBoolean(5, pet.isDisponivel());
+            stmt.setInt(6, pet.getId());
+            stmt.executeUpdate();
+            System.out.println("Pet '" + pet.getNome() + "' atualizado no banco.");
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao editar pet: " + e.getMessage());
+        } finally {
+            ConexaoBanco.fechar(conn);
+        }
+    }
+
     // ─── Remover ───────────────────────────────────────────────────────────────
 
     public void remover(int id) {
@@ -118,11 +140,12 @@ public class Petrepositorio {
         double peso  = rs.getDouble("peso");
         String raca  = rs.getString("raca");
         String tipo  = rs.getString("tipo");
+        boolean disp = rs.getBoolean("disponivel");
 
         switch (tipo.toLowerCase()) {
-            case "cachorro": return new Cachorro(id, nome, idade, peso, raca, null);
-            case "gato":     return new Gato(id, nome, idade, peso, raca, null);
-            default:         return new Outropet(id, nome, idade, peso, raca, null);
+            case "cachorro": return new Cachorro(id, nome, idade, peso, raca, null, disp);
+            case "gato":     return new Gato(id, nome, idade, peso, raca, null, disp);
+            default:         return new Outropet(id, nome, idade, peso, raca, null, disp);
         }
     }
 }

@@ -1,30 +1,11 @@
-### IntelliJ IDEA ###
+# Ignorar a pasta de compilação do Java
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-.kotlin
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# Ignorar a pasta de cópia
+src (cópia)/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
+# Ignorar arquivos de configuração do VS Code (opcional, mas recomendado)
 .vscode/
-
-### Mac OS ###
-.DS_Store
+.settings/
+.classpath
+.project
